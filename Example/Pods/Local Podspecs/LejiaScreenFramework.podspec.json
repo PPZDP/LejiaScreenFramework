@@ -1,0 +1,31 @@
+{
+  "name": "LejiaScreenFramework",
+  "version": "0.1.0",
+  "summary": "A short description of LejiaScreenFramework.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/PPZDP/LejiaScreenFramework",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "sawrysc@163.com": "jiarui.li@carrobot.com"
+  },
+  "source": {
+    "git": "https://github.com/PPZDP/LejiaScreenFramework.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "LejiaScreenFramework/Classes/**/*",
+  "public_header_files": "LejiaScreenFramework/Classes/HUDWAYProjectManager.h",
+  "dependencies": {
+    "SSZipArchive": [
+
+    ],
+    "CocoaAsyncSocket": [
+
+    ]
+  }
+}

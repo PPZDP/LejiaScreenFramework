@@ -1,0 +1,6 @@
+framework module Pods_LejiaScreenFramework_Example {
+  umbrella header "Pods-LejiaScreenFramework_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

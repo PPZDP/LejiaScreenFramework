@@ -1,0 +1,6 @@
+framework module LejiaScreenFramework {
+  umbrella header "LejiaScreenFramework-umbrella.h"
+
+  export *
+  module * { export * }
+}
