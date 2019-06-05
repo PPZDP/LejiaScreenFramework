@@ -36,7 +36,7 @@ TODO: Add long description of the pod here.
   #   'LejiaScreenFramework' => ['LejiaScreenFramework/Assets/*.png']
   # }
 
-   s.public_header_files = 'LejiaScreenFramework/Classes/HUDWAYProjectManager.h'
+   s.public_header_files = 'LejiaScreenFramework/Classes/source/LejiaProjectManager.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
   

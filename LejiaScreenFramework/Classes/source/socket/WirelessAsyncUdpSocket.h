@@ -19,13 +19,15 @@
 #define TAG_SOCKET_SEND_HUD 2001
 #define TAG_SOCKET_SEND_HUD_GET_VERSION 2001
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef void(^UDPSuccessBlock)(NSString *,NSInteger,NSInteger,NSInteger);
 typedef void(^UDPNotFindHudBlock)(void);
 typedef void(^UDPErrorBlock)(NSError *);
 
 
 
-NS_ASSUME_NONNULL_BEGIN
+
 
 @interface WirelessAsyncUdpSocket : NSObject
 + (WirelessAsyncUdpSocket *)sharedManager;
