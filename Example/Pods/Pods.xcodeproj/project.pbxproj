@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		009AB5C9281B19A79C735EF5FB7AFAD8 /* Pods-LejiaScreenFramework_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B73586E4465288631B35AA74ED2C5700 /* Pods-LejiaScreenFramework_Example-dummy.m */; };
 		0910F209293D5ABB906E3AD7EE65FD10 /* HUDWAYProjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BB23FFBFB75C71A4DC27D94FC3EBD4D2 /* HUDWAYProjectManager.m */; };
-		0E1A53C1CF12765875D580C260A796C3 /* LejiaProjectManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 53EEE752A25A90219CD8CB00DB833AD9 /* LejiaProjectManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		11A53004FAF40D875070008C53F60442 /* Tool.h in Headers */ = {isa = PBXBuildFile; fileRef = 342BD65E7BB4A46A116C4C915464E87D /* Tool.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		15A04E7CF6020DBDAE8709B55AA787EF /* crypt.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EDD1A07C474F63283D4EFBAC3B70C11 /* crypt.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		1A82E953A996388939154A85B9748577 /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = A392EC90656CE6ADBB0300553A6A12B6 /* sha1.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -31,11 +30,11 @@
 		4D1040CF1406F5DACF603094A5753FC7 /* CRSocketMsgAssistManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B8638D4CB2AA988199CD693312796B97 /* CRSocketMsgAssistManager.m */; };
 		5339B6212996CA2D574DBFEB4A91EAE9 /* CRDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ABFC104E5DFF1B7A92BE41C764AB0D5 /* CRDataManager.m */; };
 		5B2C75460173D7617B81CAD15FE7DDEF /* CRHUDUpLoadingFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 476F2799B229AD56EBD08D47F0C779E1 /* CRHUDUpLoadingFileManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5D32C539EA4AC2FE61BCA14CB3D65EA7 /* HUDWAYProjectManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F6EC5D64A0FAF11D9C27CE6EE18C6A1 /* HUDWAYProjectManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		5FD0BBB871327FA3F704D5C2251F1ACF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21FB367CDE716429B965B8685F0AB118 /* Foundation.framework */; };
 		656586632FA7CAB88534AF7129A4C9C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21FB367CDE716429B965B8685F0AB118 /* Foundation.framework */; };
 		68E538D7EB6275F63DD9F2633C322006 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6DD09291D88413AF7E46D6FAD2E194 /* GCDAsyncSocket.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		6C590B0B71179F6E522A8921C2EFAE18 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 14D2D18F75689C16537D767FF22C7C4B /* unzip.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		6CD3F46312EA7A1F5A7B52DD792DFFFE /* HUDWAYProjectManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F6EC5D64A0FAF11D9C27CE6EE18C6A1 /* HUDWAYProjectManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6DC0DB4F93A11EAF23412C1F00800FA0 /* aes_ni.h in Headers */ = {isa = PBXBuildFile; fileRef = C3FC2655C6DE6873E30308AC6E36A45C /* aes_ni.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		6E693EDBABC9C0D93C21AAC1E23608E0 /* CRHUDUploadingFile.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0AB100F63F373E5DE75402C76C80CD /* CRHUDUploadingFile.m */; };
 		703E5EE1BDA79B10BB4C496D026F2A7E /* Pods-LejiaScreenFramework_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 210E2FACACA59342D8B7FA37A7580B82 /* Pods-LejiaScreenFramework_Tests-dummy.m */; };
@@ -78,6 +77,7 @@
 		CAFD7D052A26513AB834D692CA94D2DC /* hmac.h in Headers */ = {isa = PBXBuildFile; fileRef = BA240E1283009E97361B6A7770E07F2A /* hmac.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		D12220147AA1132EA470A89F680EC9EC /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC4BB3E0920F692E55D0D356F9DF9BA /* SSZipArchive.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		D64DC5803E940CC6970F5F88766B2234 /* aes_ni.c in Sources */ = {isa = PBXBuildFile; fileRef = FEDFAC054479F90D809B81087ADFA8A1 /* aes_ni.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		D6624E67774BAF513DF0FEBD3342A315 /* LejiaProjectManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 53EEE752A25A90219CD8CB00DB833AD9 /* LejiaProjectManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DD8B69BE977E192A71D72419B2EBC4C4 /* LejiaScreenFramework-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E60902E609729014E7B2CCC69C3FF359 /* LejiaScreenFramework-dummy.m */; };
 		DDA3BB39707981FE0683C9CDC0D4B0FA /* pwd2key.h in Headers */ = {isa = PBXBuildFile; fileRef = 692E59BA07C4765C9051E80CF7AD65A3 /* pwd2key.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		DDC30EAE47D54D659E85F769E32FD826 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F612FBC3D4E3DE607FE3AC57EE3EEE3 /* CocoaAsyncSocket.framework */; };
@@ -645,8 +645,8 @@
 				2F79583C760E6F708F6842A71E616601 /* CRTcpError.h in Headers */,
 				A2AC60AB7A263D00E9993E56CBF78043 /* DTNetworkTools.h in Headers */,
 				A2A733BD2CC3051019353FD9DD1EAE71 /* GCDDelay.h in Headers */,
-				6CD3F46312EA7A1F5A7B52DD792DFFFE /* HUDWAYProjectManager.h in Headers */,
-				0E1A53C1CF12765875D580C260A796C3 /* LejiaProjectManager.h in Headers */,
+				5D32C539EA4AC2FE61BCA14CB3D65EA7 /* HUDWAYProjectManager.h in Headers */,
+				D6624E67774BAF513DF0FEBD3342A315 /* LejiaProjectManager.h in Headers */,
 				F1A6F4305C65C115CA3035C14108BF9B /* LejiaScreenFramework-umbrella.h in Headers */,
 				44048EB6C37CAA57A8AE5D777AD0FA51 /* ScreenMacro.h in Headers */,
 				11A53004FAF40D875070008C53F60442 /* Tool.h in Headers */,
@@ -1169,7 +1169,7 @@
 			};
 			name = Debug;
 		};
-		6C5BA00E4D4AE5A1D3EEFF59B7CA3C61 /* Release */ = {
+		6B680A14B753DEE02CE8F128FF7F3B74 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5F3C8A0E6E85D710946BF4F024BF14B6 /* LejiaScreenFramework.xcconfig */;
 			buildSettings = {
@@ -1185,7 +1185,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/LejiaScreenFramework/LejiaScreenFramework-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/LejiaScreenFramework/LejiaScreenFramework-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/LejiaScreenFramework/LejiaScreenFramework.modulemap";
 				PRODUCT_MODULE_NAME = LejiaScreenFramework;
@@ -1199,6 +1199,36 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		6EDE94A74E4300D73FB005FB87FF76B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F3C8A0E6E85D710946BF4F024BF14B6 /* LejiaScreenFramework.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/LejiaScreenFramework/LejiaScreenFramework-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/LejiaScreenFramework/LejiaScreenFramework-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/LejiaScreenFramework/LejiaScreenFramework.modulemap";
+				PRODUCT_MODULE_NAME = LejiaScreenFramework;
+				PRODUCT_NAME = LejiaScreenFramework;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		7877D7C6566D3A068261BE37983C837D /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1292,36 +1322,6 @@
 			};
 			name = Debug;
 		};
-		DEA5A8E222789D0A0B0DCAC3DD5D7A2B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5F3C8A0E6E85D710946BF4F024BF14B6 /* LejiaScreenFramework.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/LejiaScreenFramework/LejiaScreenFramework-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/LejiaScreenFramework/LejiaScreenFramework-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/LejiaScreenFramework/LejiaScreenFramework.modulemap";
-				PRODUCT_MODULE_NAME = LejiaScreenFramework;
-				PRODUCT_NAME = LejiaScreenFramework;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		E17CFBB69869B5E928ED1397BE056EE6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3D08906D231541E1A6869FCE96DB60FA /* CocoaAsyncSocket.xcconfig */;
@@ -1407,8 +1407,8 @@
 		668E79CE7FC55D81DD85195BCFD518A3 /* Build configuration list for PBXNativeTarget "LejiaScreenFramework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DEA5A8E222789D0A0B0DCAC3DD5D7A2B /* Debug */,
-				6C5BA00E4D4AE5A1D3EEFF59B7CA3C61 /* Release */,
+				6EDE94A74E4300D73FB005FB87FF76B3 /* Debug */,
+				6B680A14B753DEE02CE8F128FF7F3B74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
