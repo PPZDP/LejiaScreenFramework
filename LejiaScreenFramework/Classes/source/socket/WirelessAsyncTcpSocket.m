@@ -802,8 +802,6 @@ static dispatch_once_t onceToken;
     //    if (sock==self.asyncSocket_screen) {
     //
     //    }
-    
-    
     if (sock==self.asyncSocket_info) {
         [self errorInfo:err socket:sock];
     }
@@ -1046,8 +1044,14 @@ static dispatch_once_t onceToken;
     }
     else
     {
-//        AILogVerbose(@"SplitScreen:未知 socket :%@,info:%@ screen:%@",socket,self.asyncSocket_info,self.asyncSocket_screen);
-        self.errorBlockScreen([NSError errorWithDomain:NSCocoaErrorDomain code:-100 userInfo:@{@"error":@"未知 socket"}]);
+        
+        if (self.errorBlockScreen) {
+             self.errorBlockScreen([NSError errorWithDomain:NSCocoaErrorDomain code:-100 userInfo:@{@"error":@"未知 socket"}]);
+        }
+        if (self.errorBlockScreen) {
+            self.errorBlockScreen(error);
+        }
+       
     }
 }
 @end
