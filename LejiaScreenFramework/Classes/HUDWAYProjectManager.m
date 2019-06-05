@@ -470,5 +470,9 @@ static inline void dispatch_async_on_main_queue(void (^block)(void)) {
     [WirelessAsyncTcpSocket sharedManager ].screenData = screenData;
 }
 
+- (void)getRomVersion:(void (^)(NSDictionary * _Nonnull))romVersionBlock
+{
+     [[WirelessAsyncTcpSocket sharedManager] getVersion:romVersionBlock];
+}
 
 @end

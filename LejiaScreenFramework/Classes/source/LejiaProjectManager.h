@@ -91,6 +91,15 @@ NS_ASSUME_NONNULL_BEGIN
  @param screenData setImgeData
  */
 -(void)mappingScreenData:(id)screenData;
+
+
+
+/**
+ HudRomVersion
+
+ @param romVersionBlock romVersionBlock
+ */
+- (void)getRomVersion:(void(^)(NSDictionary *))romVersionBlock;
 @end
 
 

@@ -89,6 +89,10 @@
     
     self.showView.text = [NSString stringWithFormat:@"%@",[NSDate new]];
     
+    [[HUDWAYProjectManager sharedManager ] getRomVersion:^(NSDictionary * dict) {
+        NSLog(@"romversion:%@",dict);
+    }];
+    
 }
 - (void)viewDidDisappear:(BOOL)animated
 {
