@@ -7,8 +7,8 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'LejiaScreenFramework'
-  s.version          = '0.5.0'
+  s.name             = 'HUDWayProjectFramework'
+  s.version          = '0.6.0'
   s.summary          = 'A short description of LejiaScreenFramework.'
 
 # This description is used to generate tags and improve search results.

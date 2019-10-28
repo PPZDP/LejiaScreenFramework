@@ -32,6 +32,7 @@
 		C6489E8C226DB5830028ABD5 /* LLightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6489E86226DB46C0028ABD5 /* LLightViewController.m */; };
 		C6489E92226DEBB80028ABD5 /* Carrobot_RK_V22_180704_HW.zip in Resources */ = {isa = PBXBuildFile; fileRef = C6489E91226DEBB80028ABD5 /* Carrobot_RK_V22_180704_HW.zip */; };
 		C6C5451122B3A59B00808D6A /* Carrobot_RK_V21_190612.zip in Resources */ = {isa = PBXBuildFile; fileRef = C6C5451022B3A59A00808D6A /* Carrobot_RK_V21_190612.zip */; };
+		C6F2FBCF2366DC6E00E4BC46 /* ScreenDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F2FBCE2366DC6E00E4BC46 /* ScreenDataManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,8 @@
 		C6489E86226DB46C0028ABD5 /* LLightViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LLightViewController.m; sourceTree = "<group>"; };
 		C6489E91226DEBB80028ABD5 /* Carrobot_RK_V22_180704_HW.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Carrobot_RK_V22_180704_HW.zip; sourceTree = "<group>"; };
 		C6C5451022B3A59A00808D6A /* Carrobot_RK_V21_190612.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Carrobot_RK_V21_190612.zip; sourceTree = "<group>"; };
+		C6F2FBCD2366DC6D00E4BC46 /* ScreenDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenDataManager.h; sourceTree = "<group>"; };
+		C6F2FBCE2366DC6E00E4BC46 /* ScreenDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenDataManager.m; sourceTree = "<group>"; };
 		F3C47FE7587807167EBA8490 /* Pods-LejiaScreenFramework_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LejiaScreenFramework_Tests.release.xcconfig"; path = "Target Support Files/Pods-LejiaScreenFramework_Tests/Pods-LejiaScreenFramework_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,6 +162,8 @@
 		6003F593195388D20070C39A /* Example for LejiaScreenFramework */ = {
 			isa = PBXGroup;
 			children = (
+				C6F2FBCD2366DC6D00E4BC46 /* ScreenDataManager.h */,
+				C6F2FBCE2366DC6E00E4BC46 /* ScreenDataManager.m */,
 				C6C5451022B3A59A00808D6A /* Carrobot_RK_V21_190612.zip */,
 				C6489E91226DEBB80028ABD5 /* Carrobot_RK_V22_180704_HW.zip */,
 				C6489E80226DB46C0028ABD5 /* Controller */,
@@ -408,6 +413,7 @@
 				C6489E87226DB5830028ABD5 /* LRomUpgradeViewController.h in Sources */,
 				C6489E88226DB5830028ABD5 /* LLightViewController.h in Sources */,
 				C6489E89226DB5830028ABD5 /* LScreenViewController.h in Sources */,
+				C6F2FBCF2366DC6E00E4BC46 /* ScreenDataManager.m in Sources */,
 				C6489E8A226DB5830028ABD5 /* LRomUpgradeViewController.m in Sources */,
 				C6489E8B226DB5830028ABD5 /* LScreenViewController.m in Sources */,
 				C6489E8C226DB5830028ABD5 /* LLightViewController.m in Sources */,

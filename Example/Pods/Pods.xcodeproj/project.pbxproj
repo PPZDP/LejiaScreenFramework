@@ -49,7 +49,6 @@
 		81AA6DC9804D019146EE8555B547979E /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = 47899D436C1238642961CB4FA237438D /* zip.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		88283978F5F55A364E21B5E09B51F72D /* Pods-LejiaScreenFramework_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B73586E4465288631B35AA74ED2C5700 /* Pods-LejiaScreenFramework_Example-dummy.m */; };
 		89497FA2D46E6800128B93E99B587C13 /* crypt.c in Sources */ = {isa = PBXBuildFile; fileRef = 54412AE0DA22F1AABBB6DDBD6E2B50C3 /* crypt.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		89CBA566FC78B0624B2FEB5CC9DE5A3C /* ScreenDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADB136C9DAA893247004D0EDE77DE43 /* ScreenDataManager.m */; };
 		8E3F361ABD34B4D1495C72D0FBDDECB3 /* sha1.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DCABCD45088F71A3DC30E1F3B73EC54 /* sha1.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		9318415CF8E777B86E9F53EAA2A10692 /* SSZipArchive-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 89284BD2EEB4AE802462E6B635B17432 /* SSZipArchive-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		963B7ADCCE903DB3F47D116877B770D1 /* aes_ni.c in Sources */ = {isa = PBXBuildFile; fileRef = FEDFAC054479F90D809B81087ADFA8A1 /* aes_ni.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -80,7 +79,6 @@
 		D5FD4A992AF7CFBBD571EBEA57CA5105 /* WirelessAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F203E3A0B4DE1D74DF9A91F678A94F /* WirelessAsyncUdpSocket.m */; };
 		D8804C39A77E5DAF71D6573A4BB510DC /* GCDDelay.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C8575F1B755AC5A9AC6E5EAA8B26D8 /* GCDDelay.m */; };
 		D9D3B7065DA3D0568ED365BFC7563143 /* Pods-LejiaScreenFramework_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E62AA39C6993C93240D11E609B908CA /* Pods-LejiaScreenFramework_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DC47241916167349C988782BF2E05837 /* ScreenDataManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F26DB91B4271D6397664C318293D44FD /* ScreenDataManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DF77DA76BD5962EE7DD383126BBBBAC8 /* GCDAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 47EC7513B5927AD8E09B0A3E635240A5 /* GCDAsyncSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DFBB92FD3466FFA2CDA0C33DF7673F7D /* DTNetworkTools.h in Headers */ = {isa = PBXBuildFile; fileRef = D3AC9DBAE70EE01AB8A716998468F3CB /* DTNetworkTools.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E331CD1094594BDF3016B9EE89A49555 /* LejiaScreenFramework-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B63A49E147D712E271276B93275AB16 /* LejiaScreenFramework-dummy.m */; };
@@ -175,7 +173,6 @@
 		4896AFE5A02CB79350F4397C046CBA28 /* aes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = aes.h; path = SSZipArchive/minizip/aes/aes.h; sourceTree = "<group>"; };
 		48CF3BBB1E894BB10C8FE76E9BDEC748 /* Pods-LejiaScreenFramework_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LejiaScreenFramework_Tests-umbrella.h"; sourceTree = "<group>"; };
 		4AC4BB3E0920F692E55D0D356F9DF9BA /* SSZipArchive.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SSZipArchive.m; path = SSZipArchive/SSZipArchive.m; sourceTree = "<group>"; };
-		4ADB136C9DAA893247004D0EDE77DE43 /* ScreenDataManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ScreenDataManager.m; sourceTree = "<group>"; };
 		4FEF800842103E1F96BAFCDFEBB7FBD4 /* CocoaAsyncSocket-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "CocoaAsyncSocket-Info.plist"; sourceTree = "<group>"; };
 		52CFF30B36615D7498827455F6966DE3 /* CRSocketMsgAssistManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = CRSocketMsgAssistManager.h; sourceTree = "<group>"; };
 		53D533DE4350DF7DC4DEAEB1A84A1E61 /* Pods-LejiaScreenFramework_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-LejiaScreenFramework_Tests.modulemap"; sourceTree = "<group>"; };
@@ -256,7 +253,6 @@
 		E90D8EC3A5794DF21F6C09D6A3D65C69 /* ioapi_mem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ioapi_mem.h; path = SSZipArchive/minizip/ioapi_mem.h; sourceTree = "<group>"; };
 		EC5F2381604D37CB0F17D713FABEFB26 /* HUDWAYProjectManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HUDWAYProjectManager.h; sourceTree = "<group>"; };
 		F1F203E3A0B4DE1D74DF9A91F678A94F /* WirelessAsyncUdpSocket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = WirelessAsyncUdpSocket.m; sourceTree = "<group>"; };
-		F26DB91B4271D6397664C318293D44FD /* ScreenDataManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ScreenDataManager.h; sourceTree = "<group>"; };
 		F4C8575F1B755AC5A9AC6E5EAA8B26D8 /* GCDDelay.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = GCDDelay.m; sourceTree = "<group>"; };
 		F74C6C8BBD131E79901DC37B0270DE33 /* brg_endian.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = brg_endian.h; path = SSZipArchive/minizip/aes/brg_endian.h; sourceTree = "<group>"; };
 		FCAD4D3518707A00B450F6A2923F2937 /* DTNetworkTools.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DTNetworkTools.m; sourceTree = "<group>"; };
@@ -564,8 +560,6 @@
 			isa = PBXGroup;
 			children = (
 				EC5F2381604D37CB0F17D713FABEFB26 /* HUDWAYProjectManager.h */,
-				F26DB91B4271D6397664C318293D44FD /* ScreenDataManager.h */,
-				4ADB136C9DAA893247004D0EDE77DE43 /* ScreenDataManager.m */,
 			);
 			name = public;
 			path = LejiaScreenFramework/Classes/public;
@@ -649,7 +643,6 @@
 				CBC8FB9EDB127D762F96F17ABDA2E391 /* HUDWAYProjectManager.h in Headers */,
 				28A26EE872B544035125C96CD25EB0F2 /* LejiaProjectManager.h in Headers */,
 				CA9EC6A4CB0A0248EE958B09A6F9BF06 /* LejiaScreenFramework-umbrella.h in Headers */,
-				DC47241916167349C988782BF2E05837 /* ScreenDataManager.h in Headers */,
 				432EB71EAF3579A871019C6AD9134526 /* ScreenMacro.h in Headers */,
 				2C084187E1C4C41E410A3798E7EF8219 /* Tool.h in Headers */,
 				1B5B96B82FF2809B05E75FB3957469E1 /* WirelessAsyncTcpSocket.h in Headers */,
@@ -867,7 +860,6 @@
 				32CD835732D00661CA055F0809D100AD /* HUDWAYProjectManager.m in Sources */,
 				2FF0A045DFAD3F8AF169FE979548028F /* LejiaProjectManager.m in Sources */,
 				E331CD1094594BDF3016B9EE89A49555 /* LejiaScreenFramework-dummy.m in Sources */,
-				89CBA566FC78B0624B2FEB5CC9DE5A3C /* ScreenDataManager.m in Sources */,
 				D1CD376E36017AF4F675841DEACFA7D3 /* Tool.m in Sources */,
 				0BBD69F79BBC046C599C68405759B477 /* WirelessAsyncTcpSocket.m in Sources */,
 				D5FD4A992AF7CFBBD571EBEA57CA5105 /* WirelessAsyncUdpSocket.m in Sources */,
