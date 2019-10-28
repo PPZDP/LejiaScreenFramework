@@ -10,7 +10,9 @@
 #endif
 #endif
 
-#import "LejiaProjectManager.h"
+#import "HUDWAYProjectManager.h"
+#import "ScreenDataManager.h"
+#import "ScreenDataManager.m"
 
 FOUNDATION_EXPORT double LejiaScreenFrameworkVersionNumber;
 FOUNDATION_EXPORT const unsigned char LejiaScreenFrameworkVersionString[];

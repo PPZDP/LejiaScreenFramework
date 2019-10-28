@@ -110,6 +110,9 @@
     base64String =  [base64String stringByReplacingOccurrencesOfString:@"\r" withString:@""];
     [[WirelessAsyncTcpSocket sharedManager] downloadingFileOffset:[NSNumber numberWithLongLong:file.offset] payload:[NSNumber numberWithInteger:buffer.length] data:base64String];
     file.offset += buffer.length;
+    
+    
+    NSLog(@"%lld  %lu",file.offset,(unsigned long)buffer.length);
     [readFile closeFile];
 }
 @end

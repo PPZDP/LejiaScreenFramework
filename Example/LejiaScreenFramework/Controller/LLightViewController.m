@@ -7,8 +7,8 @@
 //
 
 #import "LLightViewController.h"
-#import "HUDWAYProjectManager.h"
 
+#import "HUDWAYProjectManager.h"
 
 @interface LLightViewController ()
 
@@ -30,7 +30,7 @@
     self.title = NSStringFromClass([self class]);
     
     if (![HUDWAYProjectManager sharedManager].isConnectTcpInfo) {
-        NSString *msg = @"please LejiaProjectManager method start";
+        NSString *msg = @"please HUDWAYProjectManager method start";
         UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"" message:msg preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [alertController dismissViewControllerAnimated:YES completion:nil];

@@ -117,9 +117,11 @@ typedef void(^RomUpgradeBlock)(NSDictionary *);
 @property(nonatomic,strong)GCDAsyncSocket *asyncSocket_screen;
 @property(nonatomic,assign)BOOL isFirst;
 @property(nonatomic,assign)BOOL isFirstInfo;
-@property(nonatomic,strong)id screenData;
+@property(nonatomic,strong)NSData *screenData;
 +(void)attemptDealloc;
 
+
+-(void)sendHUDData:(NSData *)data;
 -(void)sendHeartBeat;
 -(void)getSpeedCorrectParam;
 -(void)getVersion :(RomUpgradeBlock)romUpgradeBlock;
@@ -157,7 +159,7 @@ typedef void(^RomUpgradeBlock)(NSDictionary *);
 
 - (void)socketConnectTcpForInfo:(NSString *)strIP screenPort:(NSInteger )screenPort  interPort:(NSInteger)interPort successBlock: (TCPSuccessBlock)successBlock notFindHudBlock:(TCPNotFindHudBlock)notFindHudBlock errorBlock:(TCPErrorBlock)errorBlock connectHostBlock:(ConnectHostBlock)connectHostBlock receiveDataBlock:(ReceiveDataBlock)receiveDataBlock;
 
-- (void)socketConnectTcpForScreen:(NSString *)strIP screenPort:(NSInteger)screenPort interPort:(NSInteger)interPort customView:(id )screenData successBlock:(TCPSuccessBlock)successBlock notFindHudBlock:(TCPNotFindHudBlock)notFindHudBlock errorBlock:(TCPErrorBlock)errorBlock connectHostBlock:(ConnectHostBlock)connectHostBlock receiveDataBlock:(ReceiveDataBlock)receiveDataBlock;
+- (void)socketConnectTcpForScreen:(NSString *)strIP screenPort:(NSInteger)screenPort interPort:(NSInteger)interPort customView:(NSData *)screenData successBlock:(TCPSuccessBlock)successBlock notFindHudBlock:(TCPNotFindHudBlock)notFindHudBlock errorBlock:(TCPErrorBlock)errorBlock connectHostBlock:(ConnectHostBlock)connectHostBlock receiveDataBlock:(ReceiveDataBlock)receiveDataBlock;
 
 -(void)sendUpgradeFile:(NSString *) filePath fileName:(NSString *)fileName statusBlock:(void(^)(NSDictionary *)) statusBlock errorBlock:(void(^)(NSError *))errorBlock;
 @end

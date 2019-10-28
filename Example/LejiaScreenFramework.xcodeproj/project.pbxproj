@@ -31,6 +31,7 @@
 		C6489E8B226DB5830028ABD5 /* LScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6489E85226DB46C0028ABD5 /* LScreenViewController.m */; };
 		C6489E8C226DB5830028ABD5 /* LLightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6489E86226DB46C0028ABD5 /* LLightViewController.m */; };
 		C6489E92226DEBB80028ABD5 /* Carrobot_RK_V22_180704_HW.zip in Resources */ = {isa = PBXBuildFile; fileRef = C6489E91226DEBB80028ABD5 /* Carrobot_RK_V22_180704_HW.zip */; };
+		C6C5451122B3A59B00808D6A /* Carrobot_RK_V21_190612.zip in Resources */ = {isa = PBXBuildFile; fileRef = C6C5451022B3A59A00808D6A /* Carrobot_RK_V21_190612.zip */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		C6489E85226DB46C0028ABD5 /* LScreenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LScreenViewController.m; sourceTree = "<group>"; };
 		C6489E86226DB46C0028ABD5 /* LLightViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LLightViewController.m; sourceTree = "<group>"; };
 		C6489E91226DEBB80028ABD5 /* Carrobot_RK_V22_180704_HW.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Carrobot_RK_V22_180704_HW.zip; sourceTree = "<group>"; };
+		C6C5451022B3A59A00808D6A /* Carrobot_RK_V21_190612.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Carrobot_RK_V21_190612.zip; sourceTree = "<group>"; };
 		F3C47FE7587807167EBA8490 /* Pods-LejiaScreenFramework_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LejiaScreenFramework_Tests.release.xcconfig"; path = "Target Support Files/Pods-LejiaScreenFramework_Tests/Pods-LejiaScreenFramework_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,6 +159,7 @@
 		6003F593195388D20070C39A /* Example for LejiaScreenFramework */ = {
 			isa = PBXGroup;
 			children = (
+				C6C5451022B3A59A00808D6A /* Carrobot_RK_V21_190612.zip */,
 				C6489E91226DEBB80028ABD5 /* Carrobot_RK_V22_180704_HW.zip */,
 				C6489E80226DB46C0028ABD5 /* Controller */,
 				6003F59C195388D20070C39A /* CRAppDelegate.h */,
@@ -273,7 +276,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = CR;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1110;
 				ORGANIZATIONNAME = "sawrysc@163.com";
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
@@ -312,6 +315,7 @@
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				C6C5451122B3A59B00808D6A /* Carrobot_RK_V21_190612.zip in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 				C6489E92226DEBB80028ABD5 /* Carrobot_RK_V22_180704_HW.zip in Resources */,
 			);

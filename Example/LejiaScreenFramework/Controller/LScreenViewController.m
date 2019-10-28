@@ -7,6 +7,7 @@
 //
 
 #import "LScreenViewController.h"
+#import "ScreenDataManager.h"
 #import "HUDWAYProjectManager.h"
 
 @interface CustomLab : UILabel
@@ -40,15 +41,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = NSStringFromClass([self class]);
     
-    UIButton *startBt = [[UIButton alloc]initWithFrame:CGRectMake(20, 64+30, 100, 50)];
-    startBt.backgroundColor = [UIColor redColor];
-    startBt.titleLabel.font = [UIFont systemFontOfSize:13];
-    [startBt setTitle:@"start" forState:UIControlStateNormal];
-    [startBt addTarget:self action:@selector(startScreen:) forControlEvents:UIControlEventTouchDown];
-    [self.view addSubview:startBt];
-    
-    
-    UIButton *startBtdata = [[UIButton alloc]initWithFrame:CGRectMake(20+50+100, 64+30, 150, 50)];
+    UIButton *startBtdata = [[UIButton alloc]initWithFrame:CGRectMake(20, 64+30, 100, 50)];
     startBtdata.backgroundColor = [UIColor redColor];
     startBtdata.titleLabel.font = [UIFont systemFontOfSize:13];
     [startBtdata setTitle:@"start for data" forState:UIControlStateNormal];
@@ -56,7 +49,7 @@
     [self.view addSubview:startBtdata];
     
     
-    UIButton *closeBt = [[UIButton alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(startBt.frame)+20, 100, 50)];
+    UIButton *closeBt = [[UIButton alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(startBtdata.frame)+20, 100, 50)];
     closeBt.backgroundColor = [UIColor blueColor];
     closeBt.titleLabel.font = [UIFont systemFontOfSize:13];
     [closeBt setTitle:@"close" forState:UIControlStateNormal];
@@ -81,6 +74,10 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
     [self.view endEditing:YES];
+    
+    [[HUDWAYProjectManager sharedManager ] getRomVersion:^(NSDictionary * dict) {
+        NSLog(@"romversion:%@",dict);
+    }];
 }
 
 -(void)refeshData
@@ -89,9 +86,7 @@
     
     self.showView.text = [NSString stringWithFormat:@"%@",[NSDate new]];
     
-    [[HUDWAYProjectManager sharedManager ] getRomVersion:^(NSDictionary * dict) {
-        NSLog(@"romversion:%@",dict);
-    }];
+   
     
 }
 - (void)viewDidDisappear:(BOOL)animated
@@ -110,44 +105,26 @@
     //    self.navigationController.navigationBarHidden=YES;
 }
 
-- (void)startScreen:(UIButton *)bt
-{
-    // customView: width:480 height:240
-    [[HUDWAYProjectManager sharedManager] start:self.showView];
-}
 
 -(void)startScreenData:(UIButton *)bt
 {
-    UIView *view = self.view;
-    UIImage *img = [self snapshot:view];
-    NSData *data =UIImageJPEGRepresentation(img,0.5);
-  
-    [[HUDWAYProjectManager sharedManager] start:data];
-    
-    // or  [[LejiaProjectManager sharedManager] mappingScreenData:data];
-}
-- (UIImage *)snapshot:(UIView *)view
-{
-    @autoreleasepool {
-        UIGraphicsBeginImageContextWithOptions(view.frame.size, NO, 1);
-        CGContextRef context = UIGraphicsGetCurrentContext();
-        [view.layer renderInContext:context];
-        UIImage *snapshot = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        return snapshot;
-    }
+
+    [ScreenDataManager sharedManager].screenView = self.view;
+    [[ScreenDataManager sharedManager] startScreenData];
 }
 
 -(void)closeScreen:(UIButton *)bt
 {
     [[HUDWAYProjectManager sharedManager] stop];
+    
+    [[ScreenDataManager sharedManager] stopTime];
 }
 
 
 
 - (void)dealloc
 {
-    [[HUDWAYProjectManager sharedManager] releaseData];
+    [[ScreenDataManager sharedManager] removeScreenView];
     NSLog(@"%s",__func__);
 }
 

@@ -34,8 +34,8 @@
 @property(nonatomic,weak)id<CRAsyncTcpSocketDelegate> delegate;
 
 @property(nonatomic,assign)BOOL ison;
-@property(nonatomic,strong) NSRecursiveLock *lock;
-@property(nonatomic,strong)dispatch_source_t times;
+@property(nonatomic,strong) NSLock *lock;
+
 @property(nonatomic,assign)NSInteger index;
 
 
@@ -68,7 +68,7 @@ static dispatch_once_t onceToken;
     return sharedManagerInstance;
 }
 +(void)attemptDealloc{
-//    AILogVerbose(@"SplitScreen:TCP 销毁.");
+    //    AILogVerbose(@"SplitScreen:TCP 销毁.");
     
     [self sharedManager].isFirst = NO;
     [[self sharedManager] cutOffSocketInfo];
@@ -81,15 +81,15 @@ static dispatch_once_t onceToken;
 }
 - (void)dealloc
 {
-//    AILogVerbose(@"SplitScreen:TCP 释放成功.");
+    //    AILogVerbose(@"SplitScreen:TCP 释放成功.");
 }
 
-- (void)socketConnectTcpForScreen:(NSString *)strIP screenPort:(NSInteger)screenPort interPort:(NSInteger)interPort customView:(id )screenData successBlock:(TCPSuccessBlock)successBlock notFindHudBlock:(TCPNotFindHudBlock)notFindHudBlock errorBlock:(TCPErrorBlock)errorBlock connectHostBlock:(ConnectHostBlock)connectHostBlock receiveDataBlock:(ReceiveDataBlock)receiveDataBlock
+- (void)socketConnectTcpForScreen:(NSString *)strIP screenPort:(NSInteger)screenPort interPort:(NSInteger)interPort customView:(NSData *)screenData successBlock:(TCPSuccessBlock)successBlock notFindHudBlock:(TCPNotFindHudBlock)notFindHudBlock errorBlock:(TCPErrorBlock)errorBlock connectHostBlock:(ConnectHostBlock)connectHostBlock receiveDataBlock:(ReceiveDataBlock)receiveDataBlock
 {
     [self  cutOffSocketScreen];
     self.screenData = screenData;
     if ([screenData isKindOfClass:[UIView class]]) {
-    
+        
     }
     else if([screenData isKindOfClass:[NSData class]])
     {
@@ -115,7 +115,7 @@ static dispatch_once_t onceToken;
     }
     else
     {
-//        AILogVerbose(@"SplitScreen:asyncSocket_screen 初始化");
+        //        AILogVerbose(@"SplitScreen:asyncSocket_screen 初始化");
     }
 }
 
@@ -138,7 +138,7 @@ static dispatch_once_t onceToken;
     }
     else
     {
-//        AILogVerbose(@"SplitScreen:asyncSocket_info 初始化.");
+        //        AILogVerbose(@"SplitScreen:asyncSocket_info 初始化.");
     }
 }
 
@@ -154,10 +154,6 @@ static dispatch_once_t onceToken;
         [self.asyncSocket_screen setDelegate:nil delegateQueue:nil];
         self.asyncSocket_screen= nil;
         
-    }
-    if (_times) {
-        dispatch_source_cancel(_times);
-        _times = nil;
     }
 }
 -(void)cutOffSocketInfo
@@ -287,7 +283,7 @@ static dispatch_once_t onceToken;
 //1.获取版本号
 -(void)getVersion:(RomUpgradeBlock)romUpgradeBlock
 {
-//    AILogVerbose(@"SplitScreen getVersion");
+    //    AILogVerbose(@"SplitScreen getVersion");
     if (romUpgradeBlock!=nil) {
         self.romUpgradeBlockInfo = romUpgradeBlock;
     }
@@ -464,11 +460,11 @@ static dispatch_once_t onceToken;
         NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:receivedata options:NSJSONReadingMutableLeaves error:nil];
         NSDictionary  *cDicResult = jsonDict;
         
-//        if (cDicResult == nil) {
-//            NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
-//            NSString *strTemp = [[NSString alloc] initWithData:data encoding:enc];
-//            cDicResult = [strTemp objectFromAIJSONString];
-//        }
+        //        if (cDicResult == nil) {
+        //            NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+        //            NSString *strTemp = [[NSString alloc] initWithData:data encoding:enc];
+        //            cDicResult = [strTemp objectFromAIJSONString];
+        //        }
         if ([cDicResult objectForKey:@"msg"]) {
             [self processMessage:cDicResult[@"msg"] data:cDicResult];
         }
@@ -485,12 +481,12 @@ static dispatch_once_t onceToken;
         self.receiveDataBlockInfo();
     }
     if ([msg isEqualToString:@"version"]) {
-//        AILogVerbose(@"SplitScreen setVersion");
+        //        AILogVerbose(@"SplitScreen setVersion");
         if (cDicResult[DATA]) {
             self.upgradeHUDState = CRUpgradeHUDStateGetVersion;
             NSString *strData = cDicResult[DATA];
             if ([strData isKindOfClass:[NSString class]]&&strData.length) {
-//                [CRDataManager setVersion:strData];
+                //                [CRDataManager setVersion:strData];
             }
             if (self.romUpgradeBlockInfo) {
                 self.romUpgradeBlockInfo(cDicResult);
@@ -519,7 +515,7 @@ static dispatch_once_t onceToken;
             if (self.statusBlock) {
                 self.statusBlock(@{@"status":@"CRUpgradeHUDStateEnd"});
             }
-//            AILogVerbose(@"SplitScreen CRUpgradeHUDStateEnd");
+            //            AILogVerbose(@"SplitScreen CRUpgradeHUDStateEnd");
             [self tcpUpdateResponse:cDicResult state:self.upgradeHUDState];
             
             //  [CRAsyncTcpSocket cutOffSocket];
@@ -571,7 +567,7 @@ static dispatch_once_t onceToken;
     }else if ([msg isEqualToString:@"macAddr"]) {
         NSString *strMac = cDicResult[DATA];
         if ([strMac isKindOfClass:[NSString class]]&&strMac.length) {
-//            [CRDataManager setCMacAddr:strMac];
+            //            [CRDataManager setCMacAddr:strMac];
             //   CRAsyncTcpSocket *asyncTcpSocket = [CRAsyncTcpSocket sharedManager];
             if ([self.delegate respondsToSelector:@selector(CRTcpGetMacAddrSuccess:)]) {
                 [self.delegate CRTcpGetMacAddrSuccess:cDicResult];
@@ -590,8 +586,8 @@ static dispatch_once_t onceToken;
                 NSString *strK = [arrTemp firstObject];
                 NSString *strB = [arrTemp lastObject];
                 if (strK&&strB) {
-//                    [CRDataManager setFK:[strK floatValue]];
-//                    [CRDataManager setFB:[strB floatValue]];
+                    //                    [CRDataManager setFK:[strK floatValue]];
+                    //                    [CRDataManager setFB:[strB floatValue]];
                 }
             }
         }
@@ -621,7 +617,7 @@ static dispatch_once_t onceToken;
             if (self.getbrightLevelBlock) {
                 self.getbrightLevelBlock([NSString stringWithFormat:@"%ld",(long)[strData integerValue]+1]);
             }
-//            [CRDataManager setBrightLevel:[strData integerValue]+1];
+            //            [CRDataManager setBrightLevel:[strData integerValue]+1];
         }
         //    CRAsyncTcpSocket *asyncTcpSocket = [CRAsyncTcpSocket sharedManager];
         //    if ([asyncTcpSocket.delegate respondsToSelector:@selector(CRTcpGetBrightLevel)]) {
@@ -637,7 +633,7 @@ static dispatch_once_t onceToken;
             }
             NSString *value =  cDicResult[@"value"];
             if (value) {
-//                [CRDataManager setBrightLevel:[value integerValue]+1];
+                //                [CRDataManager setBrightLevel:[value integerValue]+1];
             }
             
             if (self.brightLevelBlock) {
@@ -661,7 +657,7 @@ static dispatch_once_t onceToken;
         NSString *strData = cDicResult[DATA];
         if (strData&&strData.length) {
             strData = [[[strData stringByReplacingOccurrencesOfString:@"ATACCT00" withString:@""] stringByReplacingOccurrencesOfString:@"ATACCT0" withString:@""] stringByReplacingOccurrencesOfString:@"ATACCT" withString:@""];
-//            [CRDataManager setAtacct:[strData integerValue]];
+            //            [CRDataManager setAtacct:[strData integerValue]];
         }
         //        CRAsyncTcpSocket *asyncTcpSocket = [CRAsyncTcpSocket sharedManager];
         //        if ([asyncTcpSocket.delegate respondsToSelector:@selector(CRTcpGetAtacct)]) {
@@ -726,9 +722,9 @@ static dispatch_once_t onceToken;
 {
     
     [self CRTcpResponse:dic state:upgradeHUDState];
-//    if ([self.delegate respondsToSelector:@selector(CRTcpResponse:state:)]) {
-//        [self.delegate CRTcpResponse:dic state:upgradeHUDState];
-//    }
+    //    if ([self.delegate respondsToSelector:@selector(CRTcpResponse:state:)]) {
+    //        [self.delegate CRTcpResponse:dic state:upgradeHUDState];
+    //    }
 }
 -(void)sendUpgradeFile:(NSString *) filePath fileName:(NSString *)fileName statusBlock:(void(^)(NSDictionary *)) statusBlock errorBlock:(void(^)(NSError *))errorBlock
 {
@@ -749,7 +745,8 @@ static dispatch_once_t onceToken;
             _upLoadingFileManager.delegate = self;
             NSURL *filePath = [NSURL URLWithString:self.filePath];
             NSString *strFileName = self.fileName;
-            [_upLoadingFileManager upgradeFolderPath:[filePath.absoluteString stringByReplacingOccurrencesOfString:strFileName withString:[strFileName stringByReplacingOccurrencesOfString:@".zip" withString:@"zip"]]];
+            NSString *newPath = [filePath.absoluteString stringByReplacingOccurrencesOfString:strFileName withString:[strFileName stringByReplacingOccurrencesOfString:@".zip" withString:@"zip"]];
+            [_upLoadingFileManager upgradeFolderPath:newPath];
         }
             break;
         case CRUpgradeHUDStateSof:
@@ -816,47 +813,20 @@ static dispatch_once_t onceToken;
 }
 -(void)startScreenInit
 {
-    if (_times == nil) {
-        [self sendData];
-    }
-    [self times];
+    [self sendHUDData:self.screenData];
 }
 
--(void)sendData
+-(void)sendHUDData:(NSData *)data
 {
+    self.screenData = data;
     @weakify(self);
-    dispatch_async(dispatch_get_main_queue(), ^{
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
         @strongify(self);
         [self.lock lock];
         self.index++;
         if (self.ison) {
-            self.index = 0;
-            if ([self.screenData isKindOfClass:[UIView class]]) {
-                UIView *view = (UIView *)self.screenData;
-                UIImage *img = [self snapshot:view];
-                NSData *data =UIImageJPEGRepresentation(img,imgSize);
-                
-                //            AILogVerbose(@"SplitScreen:screenSize %u",data.length/1024);
-                
-                //            AILogDebug(@"SplitScreen:screenSize %ld", (long)data.length/1024);
-                
-                NSMutableData *muData = [[NSMutableData alloc]init];
-                Byte src [4];
-                src[3] =  (Byte) ((data.length>>24) & 0xFF);
-                src[2] =  (Byte) ((data.length>>16) & 0xFF);
-                src[1] =  (Byte) ((data.length>>8) & 0xFF);
-                src[0] =  (Byte) (data.length & 0xFF);
-                [muData appendBytes:src length:4];
-                [muData appendData:data];
-                if (muData.length>0) {
-                    [self.asyncSocket_screen writeData:muData withTimeout:2 tag:TAG_SOCKET_TCP_WRITE];
-                }
-                self.ison = NO;
-                img = nil;
-            }
-            else if ([self.screenData isKindOfClass:[NSData class]])
-            {
-                NSData *data =(NSData *)self.screenData;
+            if (data) {
                 NSMutableData *muData = [[NSMutableData alloc]init];
                 Byte src [4];
                 src[3] =  (Byte) ((data.length>>24) & 0xFF);
@@ -872,28 +842,7 @@ static dispatch_once_t onceToken;
             }
             else
             {
-                UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-                UIView *view = window;
-                UIImage *img = [self snapshot:view];
-                NSData *data =UIImageJPEGRepresentation(img,imgSize);
-                
-                //            AILogVerbose(@"SplitScreen:screenSize %u",data.length/1024);
-                
-                //            AILogDebug(@"SplitScreen:screenSize %ld", (long)data.length/1024);
-                
-                NSMutableData *muData = [[NSMutableData alloc]init];
-                Byte src [4];
-                src[3] =  (Byte) ((data.length>>24) & 0xFF);
-                src[2] =  (Byte) ((data.length>>16) & 0xFF);
-                src[1] =  (Byte) ((data.length>>8) & 0xFF);
-                src[0] =  (Byte) (data.length & 0xFF);
-                [muData appendBytes:src length:4];
-                [muData appendData:data];
-                if (muData.length>0) {
-                    [self.asyncSocket_screen writeData:muData withTimeout:2 tag:TAG_SOCKET_TCP_WRITE];
-                }
-                self.ison = NO;
-                img = nil;
+                [self errorInfo:[NSError errorWithDomain:NSCocoaErrorDomain code:-1 userInfo:@{@"error":@"screenData = nil"}]socket:self.asyncSocket_screen];
             }
             
         }
@@ -912,104 +861,15 @@ static dispatch_once_t onceToken;
     self.delegate = delegate;
 }
 
-- (NSRecursiveLock *)lock
+- (NSLock *)lock
 {
     if (!_lock) {
-        _lock = [[NSRecursiveLock alloc]init];
+        _lock = [[NSLock alloc]init];
     }
     return _lock;
 }
 
-- (UIImage *)snapsHotView:(UIView *)view
-{
-    UIImage *viewImage = nil;
-    UIGraphicsBeginImageContext(view.frame.size);
-    //[screenWindow.layer renderInContext:UIGraphicsGetCurrentContext()];
-    
-    [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:YES];
-    viewImage = UIGraphicsGetImageFromCurrentImageContext();
-    
-    
-    UIGraphicsEndImageContext();
-    //    viewImage = [self scaleToSize:viewImage size:CGSizeMake(480, 240)];
-    return viewImage;
-}
-- (UIImage *)scaleToSize:(UIImage *)img size:(CGSize)size{
-    // 创建一个bitmap的context
-    // 并把它设置成为当前正在使用的context
-    UIGraphicsBeginImageContext(size);
-    // 绘制改变大小的图片
-    [img drawInRect:CGRectMake(0,0, size.width, size.height)];
-    // 从当前context中创建一个改变大小后的图片
-    UIImage* scaledImage =UIGraphicsGetImageFromCurrentImageContext();
-    // 使当前的context出堆栈
-    UIGraphicsEndImageContext();
-    //返回新的改变大小后的图片
-    return scaledImage;
-}
 
-- (UIImage *)snapshot:(UIView *)view
-{
-    @autoreleasepool {
-        
-        
-        //        size_t width = view.bounds.size.width;
-        //        size_t height = view.bounds.size.height;
-        //
-        //        unsigned char *imageBuffer = (unsigned char *)malloc(width*height*4);
-        //        CGColorSpaceRef colourSpace = CGColorSpaceCreateDeviceRGB();
-        //
-        //        CGContextRef imageContext =
-        //        CGBitmapContextCreate(imageBuffer, width, height, 8, width*4, colourSpace,
-        //                              kCGImageAlphaPremultipliedFirst | kCGBitmapByteOrder32Little);
-        //
-        //        CGColorSpaceRelease(colourSpace);
-        //
-        //        [view.layer renderInContext:imageContext];
-        //         view.layer.contents = (id)nil;
-        //        CGImageRef outputImage = CGBitmapContextCreateImage(imageContext);
-        //        UIImage *snapshot = [UIImage imageWithCGImage:outputImage scale:[UIScreen mainScreen].scale orientation:UIImageOrientationUp];
-        //        CGImageRelease(outputImage);
-        //        CGContextRelease(imageContext);
-        //        free(imageBuffer);
-        
-        
-        
-        // 不能用 [UIScreen mainScreen].scale
-        UIGraphicsBeginImageContextWithOptions(view.frame.size, NO, 1);
-        CGContextRef context = UIGraphicsGetCurrentContext();
-        //        if ([view respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
-        //            //锁屏会白屏 不能用 drawViewHierarchyInRect
-        //            [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:YES];
-        //        }
-        //        else
-        //  {
-        [view.layer renderInContext:context];
-        //   }
-//        view.layer.contents = (id)nil;
-        UIImage *snapshot = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        return snapshot;
-    }
-}
-- (dispatch_source_t )times
-{
-    if (!_times) {
-        //        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-        dispatch_queue_t queue = dispatch_get_main_queue();
-        _times = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
-        
-        dispatch_source_set_timer(_times, dispatch_walltime(NULL, 0), 0.2 * NSEC_PER_SEC, 0);
-        @weakify(self);
-        dispatch_source_set_event_handler(_times, ^{
-            @strongify(self);
-            [self sendData];
-        });
-        dispatch_resume(_times);
-        // dipatch_cancel(self.timer);
-    }
-    return _times;
-}
 
 - (BOOL)isDataChannelConnect{
     if (self.asyncSocket_info) {
@@ -1022,7 +882,7 @@ static dispatch_once_t onceToken;
 
 -(void)errorInfo:(NSError *)error socket:(GCDAsyncSocket *)socket
 {
-//    AILogVerbose(@"SplitScreen 断开");
+    //    AILogVerbose(@"SplitScreen 断开");
     if (socket==self.asyncSocket_info) {
         [self cutOffSocketInfo];
         if (self.errorBlockInfo) {
@@ -1033,10 +893,6 @@ static dispatch_once_t onceToken;
     {
         
         [self cutOffSocketScreen];
-        if (_times) {
-            dispatch_source_cancel(_times);
-            _times = nil;
-        }
         if (self.errorBlockScreen) {
             self.errorBlockScreen(error);
         }
@@ -1046,12 +902,12 @@ static dispatch_once_t onceToken;
     {
         
         if (self.errorBlockScreen) {
-             self.errorBlockScreen([NSError errorWithDomain:NSCocoaErrorDomain code:-100 userInfo:@{@"error":@"未知 socket"}]);
+            self.errorBlockScreen([NSError errorWithDomain:NSCocoaErrorDomain code:-100 userInfo:@{@"error":@"未知 socket"}]);
         }
         if (self.errorBlockScreen) {
             self.errorBlockScreen(error);
         }
-       
+        
     }
 }
 @end

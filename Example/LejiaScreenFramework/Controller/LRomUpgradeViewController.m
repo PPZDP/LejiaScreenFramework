@@ -8,6 +8,7 @@
 
 #import "LRomUpgradeViewController.h"
 #import "HUDWAYProjectManager.h"
+#import "SSZipArchive.h"
 @interface LRomUpgradeViewController ()
 @property(nonatomic,strong)UIButton *getUpgradeBt;
 @property(nonatomic,strong)UILabel *subLab;
@@ -21,7 +22,7 @@
     self.title = NSStringFromClass([self class]);
     
     if (![HUDWAYProjectManager sharedManager].isConnectTcpInfo) {
-        NSString *msg = @"please LejiaProjectManager method start ";
+        NSString *msg = @"please HUDWAYProjectManager method start ";
         UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"" message:msg preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [alertController dismissViewControllerAnimated:YES completion:nil];
@@ -62,23 +63,36 @@
 {
     NSString * appDir = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
     NSString *appLib = [appDir stringByAppendingString:@"/Caches"];
-    NSString *cachesfileName = @"Carrobot_RK_V22_180704_HW.zip";
+    NSString *cachesfileName = @"Carrobot_RK_V21_190612.zip";
     NSString *cachesfilePath =  [NSString stringWithFormat:@"%@/%@",appLib,cachesfileName];
-    NSString *fileName = @"Carrobot_RK_V22_180704_HW";
+    NSString *fileName = @"Carrobot_RK_V21_190612";
     NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"zip"];
     [self copyMissingFile:filePath toPath:appLib];
     
-#pragma mark wait  1minute - 3minute
-    [[HUDWAYProjectManager sharedManager]  sendUpgradeFile:cachesfilePath fileName:cachesfileName statusBlock:^(NSDictionary * _Nonnull dict) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.subLab.text = [self DataTOjsonString:dict];
-        });
+     NSString *desFilePath = [cachesfilePath stringByReplacingOccurrencesOfString:@".zip" withString:@"zip"];
+    
+    [SSZipArchive unzipFileAtPath:cachesfilePath toDestination:desFilePath progressHandler:^(NSString * _Nonnull entry, unz_file_info zipInfo, long entryNumber, long total) {
         
-    } errorBlock:^(NSError * _Nonnull error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.subLab.text = [self DataTOjsonString:error.userInfo];
-        });
+    } completionHandler:^(NSString * _Nonnull path, BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            #pragma mark wait  1minute - 3minute
+            [[HUDWAYProjectManager sharedManager]  sendUpgradeFile:desFilePath fileName:cachesfileName statusBlock:^(NSDictionary * _Nonnull dict) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.subLab.text = [self DataTOjsonString:dict];
+                });
+                
+            } errorBlock:^(NSError * _Nonnull error) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.subLab.text = [self DataTOjsonString:error.userInfo];
+                });
+            }];
+            
+            
+        }
+        
+        
     }];
+
 }
 
 - (BOOL)copyMissingFile:(NSString *)sourcePath toPath:(NSString *)toPath

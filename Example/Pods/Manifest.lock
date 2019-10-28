@@ -1,6 +1,6 @@
 PODS:
   - CocoaAsyncSocket (7.6.3)
-  - LejiaScreenFramework (0.3.0):
+  - LejiaScreenFramework (0.4.0):
     - CocoaAsyncSocket
     - SSZipArchive
   - SSZipArchive (2.1.5)
@@ -19,9 +19,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
-  LejiaScreenFramework: 0a4838de3614a2c80e83aaf8b8262a4e7674b841
+  LejiaScreenFramework: 361e356a4c28cb10c7b5cbfcf11a66b1563c1bb8
   SSZipArchive: cefe1364104a0231268a5deb8495bdf2861f52f0
 
-PODFILE CHECKSUM: 37a801255db5683d38b59e05e4874b468a91dd4b
+PODFILE CHECKSUM: 93b63c655ecd89f7bf2940ef125d68eee5cb6d8b
 
-COCOAPODS: 1.7.0.beta.3
+COCOAPODS: 1.7.5

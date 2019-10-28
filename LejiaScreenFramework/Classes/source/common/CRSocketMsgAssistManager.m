@@ -36,6 +36,7 @@
 }
 +(void)sendData:(NSDictionary *)dic
 {
+    
     CRSocketMsgAssistManager *manager = [CRSocketMsgAssistManager sharedManager];
     [manager.arrMutMsgs addObject:dic];
     if ([manager.arrMutMsgs count]==1) {
@@ -44,7 +45,7 @@
             [manager.timer invalidate];
         }
         dispatch_async_on_main_queue(^{
-            manager.timer = [NSTimer scheduledTimerWithTimeInterval:MsgTimeOut target:manager selector:@selector(timerMsgTimeOut) userInfo:nil repeats:NO];
+//            manager.timer = [NSTimer scheduledTimerWithTimeInterval:MsgTimeOut target:manager selector:@selector(timerMsgTimeOut) userInfo:nil repeats:NO];
         });
         
     }else{
@@ -74,8 +75,6 @@
 {
     //    BLYLogInfo(@"socket发送的数据：%@",dic);
     WirelessAsyncTcpSocket *asyncTcpSocket = [WirelessAsyncTcpSocket sharedManager];
-    
-    
     NSStringEncoding encode = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
     NSString *str =  [Tool dictionaryToJson:dic];
     NSData *data=[str dataUsingEncoding:encode];
